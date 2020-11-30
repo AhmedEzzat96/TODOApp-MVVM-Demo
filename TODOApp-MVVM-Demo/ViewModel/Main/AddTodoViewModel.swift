@@ -1,11 +1,11 @@
 
 import Foundation
 
-protocol AddTodoPresenterProtocol {
+protocol AddTodoViewModelProtocol {
     func taskDone(with task: Task)
 }
 
-class AddTodoPresenter {
+class AddTodoViewModel {
     
     //MARK:- Properties
     private weak var view: AddTodoVCProtocol?
@@ -17,7 +17,7 @@ class AddTodoPresenter {
 }
 
 // MARK:- Protocol Methods
-extension AddTodoPresenter: AddTodoPresenterProtocol {
+extension AddTodoViewModel: AddTodoViewModelProtocol {
     func taskDone(with task: Task) {
         if validateTask(with: task) {
             addTask(with: task)
@@ -26,7 +26,7 @@ extension AddTodoPresenter: AddTodoPresenterProtocol {
 }
 
 // MARK:- Private Methods
-extension AddTodoPresenter {
+extension AddTodoViewModel {
     private func addTask(with task: Task) {
         self.view?.showIndicator()
         APIManager.addTask(with: task) { [weak self] (success) in

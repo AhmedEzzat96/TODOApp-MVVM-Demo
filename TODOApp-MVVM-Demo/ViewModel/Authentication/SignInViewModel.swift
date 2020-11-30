@@ -1,11 +1,11 @@
 
 import Foundation
 
-protocol SignInPresenterProtocol {
+protocol SignInViewModelProtocol {
     func goToMainScreen(with user: User?)
 }
 
-class SignInVCPresenter {
+class SignInViewModel {
     
     //MARK:- Properties
     private weak var view: SignInVCProtocol?
@@ -17,7 +17,7 @@ class SignInVCPresenter {
 }
 
 // MARK:- Protocol Methods
-extension SignInVCPresenter: SignInPresenterProtocol {
+extension SignInViewModel: SignInViewModelProtocol {
     func goToMainScreen(with user: User?) {
         if validateUser(with: user) {
             signIn(with: user!)
@@ -26,7 +26,7 @@ extension SignInVCPresenter: SignInPresenterProtocol {
 }
 
 // MARK:- Private Methods
-extension SignInVCPresenter {
+extension SignInViewModel {
     private func signIn(with user: User) {
         view?.showIndicator()
         APIManager.login(with: user) { [weak self] (response) in

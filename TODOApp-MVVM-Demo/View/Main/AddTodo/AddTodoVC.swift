@@ -19,7 +19,7 @@ class AddTodoVC: UIViewController {
     
     // MARK:- Properties
     weak var delegate: refreshDataDelegate?
-    var presenter: AddTodoPresenterProtocol!
+    var presenter: AddTodoViewModelProtocol!
     
     // MARK:- Lifecycle methods
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class AddTodoVC: UIViewController {
     // MARK:- Public Methods
     class func create() -> AddTodoVC {
         let addTodoVC: AddTodoVC = UIViewController.create(storyboardName: Storyboards.main, identifier: ViewControllers.addTodoVC)
-        addTodoVC.presenter = AddTodoPresenter(view: addTodoVC)
+        addTodoVC.presenter = AddTodoViewModel(view: addTodoVC)
         return addTodoVC
     }
 }

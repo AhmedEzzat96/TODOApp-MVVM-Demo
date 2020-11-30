@@ -24,7 +24,7 @@ class ProfileVC: UITableViewController {
     @IBOutlet weak var imageViewLabel: UILabel!
     
     //MARK:- Properties
-    var presenter: ProfilePresenterProtocol!
+    var presenter: ProfileViewModelProtocol!
     
     // MARK:- Lifecycle methods
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class ProfileVC: UITableViewController {
     // MARK:- Public Methods
     class func create() -> ProfileVC {
         let profileVC: ProfileVC = UIViewController.create(storyboardName: Storyboards.authentication, identifier: ViewControllers.profileVC)
-        profileVC.presenter = ProfilePresenter(view: profileVC)
+        profileVC.presenter = ProfileViewModel(view: profileVC)
         return profileVC
     }
     

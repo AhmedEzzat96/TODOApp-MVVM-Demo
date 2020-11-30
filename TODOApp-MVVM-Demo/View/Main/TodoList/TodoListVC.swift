@@ -14,7 +14,7 @@ class TodoListVC: UIViewController {
     
     
     // MARK:- Properties
-    var presenter: TodoListPresenterProtocol!
+    var presenter: TodoListViewModelProtocol!
     
     // MARK:- Lifecycle methods
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class TodoListVC: UIViewController {
     // MARK:- Public Methods
     class func create() -> TodoListVC {
         let todoListVC: TodoListVC = UIViewController.create(storyboardName: Storyboards.main, identifier: ViewControllers.todoListVC)
-        todoListVC.presenter = TodoListPresenter(view: todoListVC)
+        todoListVC.presenter = TodoListViewModel(view: todoListVC)
         return todoListVC
     }
     

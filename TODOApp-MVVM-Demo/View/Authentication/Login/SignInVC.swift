@@ -12,7 +12,7 @@ class SignInVC: UIViewController {
     @IBOutlet var signinView: SigninView!
     
     // MARK:- Properties
-    var presenter: SignInPresenterProtocol!
+    var presenter: SignInViewModelProtocol!
     
     // MARK:- Lifecycle Methods
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class SignInVC: UIViewController {
     // MARK:- Public Methods
     class func create() -> SignInVC {
         let signInVC: SignInVC = UIViewController.create(storyboardName: Storyboards.authentication, identifier: ViewControllers.signInVC)
-        signInVC.presenter = SignInVCPresenter(view: signInVC)
+        signInVC.presenter = SignInViewModel(view: signInVC)
         return signInVC
     }
 }

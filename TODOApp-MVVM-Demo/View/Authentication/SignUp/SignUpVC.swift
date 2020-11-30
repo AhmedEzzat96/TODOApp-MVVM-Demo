@@ -12,7 +12,7 @@ class SignUpVC: UIViewController {
     @IBOutlet var signUpView: SignUpView!
     
     // MARK:- Properties
-    var presenter: SignUpVCPresenterProtocol!
+    var presenter: SignUpViewModelProtocol!
     
     // MARK:- Lifecycle methods
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class SignUpVC: UIViewController {
     // MARK:- Public Methods
     class func create() -> SignUpVC {
         let signUpVC: SignUpVC = UIViewController.create(storyboardName: Storyboards.authentication, identifier: ViewControllers.signUpVC)
-        signUpVC.presenter = SignUpVCPresenter(view: signUpVC)
+        signUpVC.presenter = SignUpViewModel(view: signUpVC)
         return signUpVC
     }
 }

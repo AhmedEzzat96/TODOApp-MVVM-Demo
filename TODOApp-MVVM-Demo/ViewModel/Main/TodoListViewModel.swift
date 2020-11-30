@@ -1,7 +1,7 @@
 
 import Foundation
 
-protocol TodoListPresenterProtocol {
+protocol TodoListViewModelProtocol {
     func viewDidLoad()
     func getAllTasks()
     func getTasksCount() -> Int
@@ -9,7 +9,7 @@ protocol TodoListPresenterProtocol {
     func deleteTaskAlert(with index: Int)
 }
 
-class TodoListPresenter {
+class TodoListViewModel {
     
     //MARK:- Properties
     private weak var view: TodoListVCProtocol?
@@ -22,7 +22,7 @@ class TodoListPresenter {
 }
 
 //MARK:- Protocol Methods
-extension TodoListPresenter: TodoListPresenterProtocol {
+extension TodoListViewModel: TodoListViewModelProtocol {
     func viewDidLoad() {
         getAllTasks()
     }
@@ -69,7 +69,7 @@ extension TodoListPresenter: TodoListPresenterProtocol {
 }
 
 //MARK:- Private Methods
-extension TodoListPresenter {
+extension TodoListViewModel {
     // delete task by id from api
     private func deleteTask(with index: Int) {
         self.view?.showIndicator()

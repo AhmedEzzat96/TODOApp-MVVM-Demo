@@ -1,7 +1,7 @@
 
 import Foundation
 
-protocol ProfilePresenterProtocol {
+protocol ProfileViewModelProtocol {
     func viewDidLoad()
     func uploadPhoto(imageData: Data)
     func updateUser(with user: User?)
@@ -9,7 +9,7 @@ protocol ProfilePresenterProtocol {
     func didSelectRow(section: Int, row: Int)
 }
 
-class ProfilePresenter {
+class ProfileViewModel {
     
     //MARK:- Properties
     private weak var view: ProfileVCProtocol?
@@ -21,7 +21,7 @@ class ProfilePresenter {
 }
 
 //MARK:- Protocol Methods
-extension ProfilePresenter: ProfilePresenterProtocol {
+extension ProfileViewModel: ProfileViewModelProtocol {
     func viewDidLoad() {
         getUser()
         getProfilePhoto()
@@ -76,7 +76,7 @@ extension ProfilePresenter: ProfilePresenterProtocol {
 }
 
 //MARK:- Private Methods
-extension ProfilePresenter {
+extension ProfileViewModel {
     // logout alert
     private func logOutAlert() {
         self.view?.showAlert(title: "Sign out?", message: "You can always access your content by signing back in ", actionTitles: ["Cancel", "Sign Out"], actionStyles: [.cancel, .destructive], actions: [nil, { [weak self] _ in

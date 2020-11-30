@@ -1,11 +1,11 @@
 
 import Foundation
 
-protocol SignUpVCPresenterProtocol {
+protocol SignUpViewModelProtocol {
     func goToMainScreen(with user: User?)
 }
 
-class SignUpVCPresenter {
+class SignUpViewModel {
     
     //MARK:- Properties
     private weak var view: SignUpVCProtocol?
@@ -17,7 +17,7 @@ class SignUpVCPresenter {
 }
 
 //MARK:- Protocol Methods
-extension SignUpVCPresenter: SignUpVCPresenterProtocol {
+extension SignUpViewModel: SignUpViewModelProtocol {
     func goToMainScreen(with user: User?) {
         if validateUser(with: user) {
             register(with: user!)
@@ -26,7 +26,7 @@ extension SignUpVCPresenter: SignUpVCPresenterProtocol {
 }
 
 //MARK:- Private Methods
-extension SignUpVCPresenter {
+extension SignUpViewModel {
     private func register(with user: User) {
         self.view?.showIndicator()
         
