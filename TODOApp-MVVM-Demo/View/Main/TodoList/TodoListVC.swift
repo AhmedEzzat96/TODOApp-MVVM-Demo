@@ -15,6 +15,7 @@ class TodoListVC: UIViewController {
     
     // MARK:- Properties
     var presenter: TodoListViewModelProtocol!
+    weak var delegate: MainNavigationDelegate?
     
     // MARK:- Lifecycle methods
     override func viewDidLoad() {
@@ -33,6 +34,7 @@ class TodoListVC: UIViewController {
     
     @IBAction func profileBtnPressed(_ sender: UIBarButtonItem) {
         let profileVC = ProfileVC.create()
+        profileVC.delegate = delegate
         navigationController?.pushViewController(profileVC, animated: true)
     }
     

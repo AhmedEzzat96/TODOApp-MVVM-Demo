@@ -1,6 +1,10 @@
 
 import UIKit
 
+protocol MainNavigationDelegate: class {
+    func showAuthState()
+}
+
 protocol ProfileVCProtocol: class {
     func showIndicator()
     func hideIndicator()
@@ -25,6 +29,7 @@ class ProfileVC: UITableViewController {
     
     //MARK:- Properties
     var presenter: ProfileViewModelProtocol!
+    weak var delegate: MainNavigationDelegate?
     
     // MARK:- Lifecycle methods
     override func viewDidLoad() {
@@ -116,9 +121,7 @@ extension ProfileVC: ProfileVCProtocol {
     }
     
     func goToSignInVC() {
-        let signInVC = SignInVC.create()
-        let signInNav = UINavigationController(rootViewController: signInVC)
-        AppDelegate.shared().window?.rootViewController = signInNav
+        self.delegate?.showAuthState()
     }
     
     func showAlert(title: String, message: String, actionTitles: [String], actionStyles: [UIAlertAction.Style], actions: [((UIAlertAction) -> Void)?]?) {

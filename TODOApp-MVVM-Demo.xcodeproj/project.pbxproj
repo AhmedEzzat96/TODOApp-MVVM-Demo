@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060DFC852577003A00BFE607 /* AppStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DFC842577003A00BFE607 /* AppStateManager.swift */; };
 		061284ED254AE4EB00921763 /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061284EC254AE4EB00921763 /* String+Validation.swift */; };
 		061284EF254B4ECE00921763 /* UIViewController+ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061284EE254B4ECE00921763 /* UIViewController+ShowAlert.swift */; };
 		06138F3825680C3200834631 /* ValidatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06138F3725680C3200834631 /* ValidatorManager.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060DFC842577003A00BFE607 /* AppStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateManager.swift; sourceTree = "<group>"; };
 		061284EC254AE4EB00921763 /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
 		061284EE254B4ECE00921763 /* UIViewController+ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowAlert.swift"; sourceTree = "<group>"; };
 		06138F3725680C3200834631 /* ValidatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorManager.swift; sourceTree = "<group>"; };
@@ -112,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060DFC832577002200BFE607 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B76E56902548A24A00C13D43 /* AppDelegate.swift */,
+				060DFC842577003A00BFE607 /* AppStateManager.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		06138F3A25682E0300834631 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,7 +272,7 @@
 		B76E568F2548A24A00C13D43 /* TODOApp-MVVM-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				B76E56902548A24A00C13D43 /* AppDelegate.swift */,
+				060DFC832577002200BFE607 /* Shared */,
 				B76E56A42548A2B400C13D43 /* Networking */,
 				B76E56A52548A2BE00C13D43 /* Managers */,
 				B76E56AB2548A32D00C13D43 /* Utilities */,
@@ -515,6 +526,7 @@
 				0628309D2553833B0074ECB5 /* ImageResponse.swift in Sources */,
 				B76E56C52548BACC00C13D43 /* UserData.swift in Sources */,
 				067391192554D57E0090B68E /* UpdateUserResponse.swift in Sources */,
+				060DFC852577003A00BFE607 /* AppStateManager.swift in Sources */,
 				B76E56B92548A76600C13D43 /* SignInVC.swift in Sources */,
 				06F2D6A32548FD0E00680804 /* UIButton+RoundedBorder.swift in Sources */,
 				B76E56BC2548A84600C13D43 /* SignUpVC.swift in Sources */,

@@ -13,6 +13,7 @@ class SignUpVC: UIViewController {
     
     // MARK:- Properties
     var presenter: SignUpViewModelProtocol!
+    weak var delegate: AuthNavigationDelegate?
     
     // MARK:- Lifecycle methods
     override func viewDidLoad() {
@@ -59,8 +60,6 @@ extension SignUpVC: SignUpVCProtocol {
     }
     
     func goToMainVC() {
-        let todoListVC = TodoListVC.create()
-        let todoListNav = UINavigationController(rootViewController: todoListVC)
-        AppDelegate.shared().window?.rootViewController = todoListNav
+        self.delegate?.showMainState()
     }
 }

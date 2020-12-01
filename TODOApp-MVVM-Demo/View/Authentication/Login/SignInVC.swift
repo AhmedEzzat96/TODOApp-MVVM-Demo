@@ -1,5 +1,9 @@
 import UIKit
 
+protocol AuthNavigationDelegate: class {
+    func showMainState()
+}
+
 protocol SignInVCProtocol: class {
     func showIndicator()
     func hideIndicator()
@@ -13,6 +17,7 @@ class SignInVC: UIViewController {
     
     // MARK:- Properties
     var presenter: SignInViewModelProtocol!
+    weak var delegate: AuthNavigationDelegate?
     
     // MARK:- Lifecycle Methods
     override func viewDidLoad() {
@@ -28,6 +33,7 @@ class SignInVC: UIViewController {
     
     @IBAction func createAccBtnPressed(_ sender: UIButton) {
         let signUpVC = SignUpVC.create()
+        signUpVC.delegate = delegate
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
@@ -54,8 +60,6 @@ extension SignInVC: SignInVCProtocol {
     }
     
     func goToMainVC() {
-        let todoListVC = TodoListVC.create()
-        let todoListNav = UINavigationController(rootViewController: todoListVC)
-        AppDelegate.shared().window?.rootViewController = todoListNav
+        self.delegate?.showMainState()
     }
 }
